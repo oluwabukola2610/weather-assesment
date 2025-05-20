@@ -2,7 +2,7 @@
 import { useParams } from "next/navigation";
 import React, { Suspense } from "react";
 
-function WeatherDetail({ city }: { city: string }) {
+function WeatherDetail({ city }: { city: string | string[] }) {
  
   return (
     <div>
