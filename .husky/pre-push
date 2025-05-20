@@ -4,10 +4,8 @@
 echo '📦 Running Next.js production build check...'
 
 npm run build || (
-    echo '❌ Next.js build failed. Fix errors and try again.';
-    false;
+    echo '❌ Next.js build failed. Fix errors and try again.'
+    exit 1
 )
 
 echo '✅ All checks passed! Proceeding with push...'
-
-exit 0

@@ -1,9 +1,9 @@
 "use client";
 import { useState } from "react";
-import SearchList from "../ui/SearchList";
 import { useRouter } from "next/navigation";
 import { useFetchCities } from "@/api/cities";
 import Input from "../ui/input";
+import SearchList from "../ui/searchList";
 
 export default function SearchBar() {
   const router = useRouter();
