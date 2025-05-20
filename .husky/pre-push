@@ -1,0 +1,13 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo '📦 Running Next.js production build check...'
+
+npm run build || (
+    echo '❌ Next.js build failed. Fix errors and try again.';
+    false;
+)
+
+echo '✅ All checks passed! Proceeding with push...'
+
+exit 0
