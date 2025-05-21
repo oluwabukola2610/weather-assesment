@@ -12,7 +12,7 @@ const PopulatedCities = () => {
   return (
     <section className="mb-12">
       <div className="flex items-center mb-6">
-        <h2 className="text-2xl font-semibold text-gray-800">Popular Cities</h2>
+        <h2 className="text-2xl font-semibold text-gray-800">Top Cities</h2>
         <div className="ml-4 h-px bg-gray-200 flex-grow"></div>
       </div>
 

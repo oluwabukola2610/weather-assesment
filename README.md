@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This is a Next.js project bootstrapped with create-next-app.
 
-## Getting Started
+Overview
+This app is a weather dashboard built with Next.js that fetches real-time and historical weather data using WeatherAPI and cities wih Geodb cities.
 
-First, run the development server:
+To keep code quality on point, I integrated Husky for pre-commit hooks enforcing linting and commit message standards and also pre-push ro run build to detect error at early stage .
 
-```bash
+Tech Stack
+Next.js — React framework with server-side rendering
+
+React Query (TanStack Query) — Data fetching, caching, syncing
+
+WeatherAPI.com — Weather data provider (current & history)
+
+Geodb cities — City list
+
+Husky — Git hooks for linting and commit message checks
+
+TypeScript — Type safety and better developer experience
+
+Tailwind CSS — Utility-first styling
+
+Get Started:
+git clone
+cd your-repo
+npm install
+
+Start the development server:
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Environment Variables
+NEXT_PUBLIC_GEO_API_HOST=wft-geo-db.p.rapidapi.com/v1/geo
+NEXT_PUBLIC_GEO_API_KEY= our_geodb_key
+NEXT_PUBLIC_WEATHER_API_KEY=your_weatherapi_key
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Git Commit Strategy
+This project uses conventional commits with Husky enforcing commit message format and lint-staged for code quality checks before commits.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Example commit types:
 
-## Learn More
+feat: A new feature
 
-To learn more about Next.js, take a look at the following resources:
+fix: A bug fix
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+docs: Documentation only changes
