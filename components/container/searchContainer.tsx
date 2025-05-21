@@ -11,7 +11,7 @@ export default function SearchBar() {
   const { data: Cities = [], isLoading } = useFetchCities(search);
 
   const handleSelect = (value: string) => {
-    router.push(`/weather/${encodeURIComponent(value)}`);
+    router.push(`/weather/${value}`);
     setSearch("");
   };
 

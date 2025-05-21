@@ -16,7 +16,7 @@ export default function SearchList({ results, onSelect, loading }: Props) {
           <li
             key={item}
             onClick={() => onSelect(item)}
-            className="p-2 hover:bg-gray-100 cursor-pointer"
+            className="p-2 text-black hover:bg-gray-100 cursor-pointer"
           >
             {item}
           </li>

@@ -1,4 +1,4 @@
-import WeatherDetailPage from "@/components/container/weather/WeatherDetails";
+import { WeatherDetailPage } from "@/components/container/weather";
 import React from "react";
 
 const page = () => {

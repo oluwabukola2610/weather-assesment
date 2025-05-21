@@ -1,24 +1,18 @@
 "use client";
 import { useParams } from "next/navigation";
 import React, { Suspense } from "react";
+import WeatherCard from "./weatherCard";
 
-function WeatherDetail({ city }: { city: string | string[] }) {
- 
-  return (
-    <div>
-      <h1>Weather for {city}</h1>
-    </div>
-  );
-}
-
-export default function WeatherDetailPage() {
+const WeatherDetailPage =()=> {
   const { city } = useParams();
 
-  if (!city) return <div>No city specified</div>;
+  if (!city) return <div className="p-4">No city specified</div>;
 
   return (
-    <Suspense fallback={<div>Loading weather details...</div>}>
-      <WeatherDetail city={city} />
+    <Suspense fallback={<div className="p-4">Loading weather details...</div>}>
+      <WeatherCard city={city} />
     </Suspense>
   );
 }
+
+export default WeatherDetailPage;

@@ -1,6 +1,5 @@
 const GEO_API_HOST = process.env.NEXT_PUBLIC_GEO_API_HOST!;
 const GEO_API_KEY = process.env.NEXT_PUBLIC_GEO_API_KEY!;
-
 import { useQuery } from "@tanstack/react-query";
 
 export const useFetchCities = (query: string) => {
@@ -8,9 +7,7 @@ export const useFetchCities = (query: string) => {
     queryKey: ["cities", query],
     queryFn: async (): Promise<string[]> => {
       if (!query) return [];
-      const url = `https://${GEO_API_HOST}/cities?namePrefix=${encodeURIComponent(
-        query
-      )}&sort=-population`;
+      const url = `https://${GEO_API_HOST}/cities?namePrefix=${query}&sort=-population`;
       const res = await fetch(url, {
         headers: {
           "X-RapidAPI-Key": GEO_API_KEY,
