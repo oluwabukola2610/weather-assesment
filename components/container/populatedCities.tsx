@@ -1,8 +1,14 @@
-import { POPULAR_CITIES } from "@/utils/popularcities";
+import { getTopSearchedCities } from "@/utils/trackCitySearch";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const PopulatedCities = () => {
+  const [topCities, setTopCities] = useState<string[]>([]);
+
+  useEffect(() => {
+    const cities = getTopSearchedCities();
+    setTopCities(cities);
+  }, []);
   return (
     <section className="mb-12">
       <div className="flex items-center mb-6">
@@ -11,7 +17,7 @@ const PopulatedCities = () => {
       </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-        {POPULAR_CITIES.map((city) => (
+        {topCities.map((city) => (
           <Link
             href={`/weather/${city}`}
             key={city}

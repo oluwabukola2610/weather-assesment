@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useFetchCities } from "@/api/cities";
 import Input from "../ui/input";
 import SearchList from "../ui/searchList";
+import { trackCitySearch } from "@/utils/trackCitySearch";
 
 export default function SearchBar() {
   const router = useRouter();
@@ -12,6 +13,7 @@ export default function SearchBar() {
 
   const handleSelect = (value: string) => {
     router.push(`/weather/${value}`);
+    trackCitySearch(value)
     setSearch("");
   };
 
