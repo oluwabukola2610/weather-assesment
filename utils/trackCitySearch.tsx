@@ -1,4 +1,4 @@
-export function trackCitySearch(city) {
+export function trackCitySearch(city:string) {
   const data = JSON.parse(localStorage.getItem("citySearches") || "{}");
   data[city] = (data[city] || 0) + 1;
   localStorage.setItem("citySearches", JSON.stringify(data));
