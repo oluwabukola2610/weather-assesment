@@ -5,7 +5,8 @@ const WeatherCard = ({ city }: { city: string | string[] }) => {
   const { data: weatherData, isLoading, error } = useFecthWeather(city);
 
   if (isLoading) return <div className="p-4">Loading weather data...</div>;
-  if (error) return <div className="p-4 text-red-500">Error: {error}</div>;
+  if (error)
+    return <div className="p-4 text-red-500">Error: {error.message}</div>;
   if (!weatherData) return <div className="p-4">No weather data available</div>;
 
   return (
@@ -62,31 +63,40 @@ const WeatherCard = ({ city }: { city: string | string[] }) => {
           <div>
             <h2 className="text-xl font-semibold mb-3">3-Day Forecast</h2>
             <div className="grid grid-cols-3 gap-2">
-              {weatherData.forecast.forecastday.map((day) => (
-                <div
-                  key={day.date}
-                  className="bg-gray-50 p-3 rounded text-center"
-                >
-                  <div className="text-sm">
-                    {new Date(day.date).toLocaleDateString("en-US", {
-                      weekday: "short",
-                    })}
+              {weatherData.forecast.forecastday.map(
+                (day: {
+                  date: string;
+                  day: {
+                    condition: { text: string; icon: string };
+                    maxtemp_c: number;
+                    mintemp_c: number;
+                  };
+                }) => (
+                  <div
+                    key={day.date}
+                    className="bg-gray-50 p-3 rounded text-center"
+                  >
+                    <div className="text-sm">
+                      {new Date(day.date).toLocaleDateString("en-US", {
+                        weekday: "short",
+                      })}
+                    </div>
+                    <Image
+                      src={day.day.condition.icon.replace(
+                        "//cdn.weatherapi.com",
+                        "https://cdn.weatherapi.com"
+                      )}
+                      alt={day.day.condition.text}
+                      width={300}
+                      height={300}
+                      className="w-10 h-10 mx-auto"
+                    />
+                    <div className="text-sm font-medium">
+                      {day.day.maxtemp_c}° / {day.day.mintemp_c}°
+                    </div>
                   </div>
-                  <Image
-                    src={day.day.condition.icon.replace(
-                      "//cdn.weatherapi.com",
-                      "https://cdn.weatherapi.com"
-                    )}
-                    alt={day.day.condition.text}
-                    width={300}
-                    height={300}
-                    className="w-10 h-10 mx-auto"
-                  />
-                  <div className="text-sm font-medium">
-                    {day.day.maxtemp_c}° / {day.day.mintemp_c}°
-                  </div>
-                </div>
-              ))}
+                )
+              )}
             </div>
           </div>
         )}

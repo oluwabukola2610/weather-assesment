@@ -1,10 +1,12 @@
+import { ReactNode } from "react";
+
 type Props = {
   role: "user" | "bot";
-  content: string ;
+  content: string | ReactNode;
   timestamp: Date;
 };
 
-  const MessageBubble = ({ role, content, timestamp }: Props) => (
+const MessageBubble = ({ role, content, timestamp }: Props) => (
   <div
     className={`p-2 rounded ${
       role === "user" ? "bg-blue-100 text-right" : "bg-gray-100 text-left"

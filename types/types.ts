@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export interface WeatherData {
   location: {
     name: string;
@@ -38,6 +40,6 @@ export type MessageRole = "user" | "bot";
 
 export interface Message {
   role: MessageRole;
-  content: string | JSX.Element;
+  content: string | ReactNode;
   timestamp: Date;
 }
