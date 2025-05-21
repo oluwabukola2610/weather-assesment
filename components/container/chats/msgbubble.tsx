@@ -1,6 +1,6 @@
 type Props = {
   role: "user" | "bot";
-  content: string | JSX.Element;
+  content: string ;
   timestamp: Date;
 };
 
